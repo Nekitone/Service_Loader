@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Configuration</title>
+</head>
+<body>
+    <p>Input your Service Confiuration</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Select Country Name</p>
+        <input type="text" name="Country" value="Country">
+        <p>Select AreaTypeCode</p>
+        <input type="text" name="AreaTypeCode" value="AreaTypeCode">
+        <p>Select Model</p>
+        {% for choice in latest_question_list %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.name }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.name }}</label><br>
+        {% endfor %}
+        <p></p>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

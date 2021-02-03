@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  serviceloader:
+    build:
+      context: .
+    network_mode: "host"
+    volumes:
+      - ./serviceloader:/serviceloader
+    command: sh -c "python manage.py runserver"
+    environment:
+      - DEBUG=1
