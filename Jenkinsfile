@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker-compose up --built --abort-on-container-exit'
+                sh 'docker-compose up --build --abort-on-container-exit'
             }
        
     }
