@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python manage.py runserver'
+                sh 'docker-compose up --built --abort-on-container-exit'
             }
        
     }
