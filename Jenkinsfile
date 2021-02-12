@@ -6,10 +6,10 @@ pipeline {
                 sh '/usr/local/bin/docker-compose build'
             }
         }
-        stage('test')
+        stage('test') {
             steps {
-                sh '/usr/local/bin/docker-compose run python manage.py test importer'
+                sh '/usr/local/bin/docker-compose run web python manage.py test importer'
+            }
+        }
     }
 }
-}
-
