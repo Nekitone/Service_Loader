@@ -1,11 +1,21 @@
 from django.shortcuts import render
-
-from .models import Dimresgenforecastmodel
+from .forms import NewServiceForm
 
 
 def index(request):
-    latest_question_list = Dimresgenforecastmodel.objects.all()
+    form = NewServiceForm(request.POST)
+    if form.is_valid():
+        return render(request, 'importer/selections.html')
+    else:
+        form = NewServiceForm()
+    return render(request, 'importer/index.html', {'form': form})
+
+
+def selections(request):
+    country = request.POST['country']
+    areatypecode = request.POST['areatypecode']
+    name = request.POST['name']
     context = {
-        'latest_question_list': latest_question_list,
+        'selected_choices': [country, areatypecode, name],
     }
-    return render(request, 'importer/index.html', context)
+    return render(request, 'importer/selections.html', context)

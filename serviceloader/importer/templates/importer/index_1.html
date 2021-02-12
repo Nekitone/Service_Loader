@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Service Configuration</title>
+     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+    {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static 'importer/styles.css' %}">
+</head>
+<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    </style>
+    <form action="{% url 'importer:selections' %}" method="post">
+        {% csrf_token %}
+        <div id="doc" class="yui-t7">
+        <div id="hd">
+        <div id="header"><h1><a>Import your Service Configurations</a></h1>
+        </div>
+        </div>
+        <div id="bd">
+    <div id="yui-main">
+      <div class="yui-b">
+        <div class="yui-gc">
+          <div class="yui-u first">
+            <div class="content">
+              <p>Select Country Name</p>
+              <input type="text" name="Country" value="Country">
+              <p>Select AreaTypeCode</p>
+              <input type="text" name="AreaTypeCode" value="AreaTypeCode">
+            </div>
+
+          </div>
+          <div class="yui-u">
+            <div class="content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="yui-b">
+      <div id="secondary">
+          <p>Select Model</p>
+          {% for model in forecast_model_list %}
+            <input type="radio" name="model" id="model{{ forloop.counter }}" value="{{ model.name }}">
+            <label for="model{{ forloop.counter }}">{{ model.name }}</label><br>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div id="ft">
+    <div id="footer">
+      <input type="submit" value="Submit">
+    </div>
+  </div>
+</div>
+    </form>
+
+</body>
+</html>
+
+
+
+<p>Select Country Name</p>
+        <input type="text" name="Country" value="Country">
+        <p></p>
+        <p></p>
+        <p>Select AreaTypeCode</p>
+        <input type="text" name="AreaTypeCode" value="AreaTypeCode">
+        <p></p>
+        <p></p>
+        <p>Select Model</p>
+        {% for model in forecast_model_list %}
+            <input type="radio" name="model" id="model{{ forloop.counter }}" value="{{ model.name }}">
+            <label for="model{{ forloop.counter }}">{{ model.name }}</label><br>
+        {% endfor %}
+        <p></p>
