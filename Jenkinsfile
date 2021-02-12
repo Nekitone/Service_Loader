@@ -8,7 +8,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh '/usr/local/bin/docker-compose run serviceloader python manage.py test importer --noinput'
+                sh '/usr/local/bin/docker-compose run serviceloader python manage.py test importer --keepdb'
             }
         }
     }
