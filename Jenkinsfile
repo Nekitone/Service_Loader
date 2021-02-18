@@ -4,8 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh '/usr/local/bin/docker-compose build'
-                sh '/usr/local/bin/docker-compose run serviceloader python manage.py makemigrations'
-                sh '/usr/local/bin/docker-compose run serviceloader python manage.py migrate importer'
             }
         }
         stage('test') {
