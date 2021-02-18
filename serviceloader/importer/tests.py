@@ -11,6 +11,6 @@ class IndexViewTest(TestCase):
         self.assertEqual(response.status_code, 404)
 
     def test_get_response_from_importer_page(self):
-        response = self.client.get(reverse('importer:index'))
+        response = self.client.get(reverse('importer:create_service'))
         self.assertEqual(response.status_code, 200)
 

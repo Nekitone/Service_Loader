@@ -3,7 +3,6 @@
 set -e
 
 python manage.py collectstatic --noinput
-python manage.py makemigrations
-python manage.py migrate importer
+echo "starting migrations"
 
 uwsgi --socket :8000 --master --enable-threads --module serviceloader.wsgi

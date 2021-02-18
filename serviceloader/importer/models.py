@@ -198,7 +198,7 @@ class Dimresgenforecastlog(models.Model):
 
 class Dimresgenforecastmodel(models.Model):
     id = models.IntegerField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
+    Model_Name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     desc = models.TextField(db_column='Desc', blank=True, null=True)  # Field name made lowercase.
     productiontypeemieid = models.IntegerField(db_column='ProductionTypeEmieID', blank=True, null=True)  # Field name made lowercase.
     type = models.TextField(db_column='Type', blank=True, null=True)  # Field name made lowercase.
@@ -209,10 +209,9 @@ class Dimresgenforecastmodel(models.Model):
         db_table = 'DimRESGenForecastModel'
 
 
-"""
 class Dimresgenforecastservice(models.Model):
     id = models.IntegerField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
+    Service_Name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     description = models.TextField(db_column='Description', blank=True, null=True)  # Field name made lowercase.
     resid = models.IntegerField(db_column='RESID', blank=True, null=True)  # Field name made lowercase.
     reslevel = models.CharField(db_column='RESLevel', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -223,10 +222,10 @@ class Dimresgenforecastservice(models.Model):
     notes = models.TextField(db_column='Notes', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'DimRESGenForecastService'
 
-
+"""
 class Dimresunit(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     resunitname = models.TextField(db_column='RESUnitName', blank=True, null=True)  # Field name made lowercase.
@@ -312,7 +311,7 @@ class Factinstalledcapacity(models.Model):
 
 
 class Factmeteoforecast(models.Model):
-    index = models.BigIntegerField(blank=True, null=True)
+    create_service = models.BigIntegerField(blank=True, null=True)
     meteoforecastlogid = models.BigIntegerField(db_column='MeteoForecastLogID', blank=True, null=True)  # Field name made lowercase.
     timestamp_utc = models.TextField(db_column='Timestamp_UTC', blank=True, null=True)  # Field name made lowercase.
     u = models.FloatField(db_column='U', blank=True, null=True)  # Field name made lowercase.
